@@ -84,7 +84,7 @@ for i in range(1000):
             cost0 = cost1
         else:
             x = np.random.uniform()
-            if x < math.exp(-abs(cost1-cost0)/T):
+            if x < np.exp((cost0-cost1)/T):
                 cost0 = cost1
             else:
                 temp = ciudades_list['ciudad '+str(r1)]
@@ -97,8 +97,6 @@ for first, second in zip(list(ciudades_list)[:-1],list(ciudades_list)[1:]):
     ax2.plot([ciudades_list[first]['x'], ciudades_list[second]['x']], [ciudades_list[first]['y'], ciudades_list[second]['y']], '-o')
 ax2.plot([(ciudades_list)['ciudad 1']['x'], (ciudades_list)[f.rstrip("\n")]['x']], [(ciudades_list)['ciudad 1']['y'], ciudades_list[f.rstrip("\n")]['y']], '-o')
 
-for c in list(ciudades_list):
-    ax2.plot(ciudades_list[c]['x'], ciudades_list[c]['y'], 'bo')
 
 print(costo)
 plt.show()
