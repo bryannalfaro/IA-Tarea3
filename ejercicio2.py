@@ -48,21 +48,21 @@ print('Lista de ciudades \n',ciudades_list)
 print('Distancia total: ', total_distance(ciudades_list))
 
 f = 'ciudad ' +str(numero_ciudades)
-fig = plt.figure(figsize=(10,10))
-ax1 = fig.add_subplot(121)
+fig = plt.figure()
+#ax1 = fig.add_subplot(121)
 ax2 = fig.add_subplot(122)
-print(list(ciudades_list))
-for first, second in zip(list(ciudades_list)[:-1],list(ciudades_list)[1:]):
-    ax1.plot([ciudades_list[first]['x'], ciudades_list[second]['x']], [ciudades_list[first]['y'], ciudades_list[second]['y']], '-o')
-ax1.plot([(ciudades_list)['ciudad 1']['x'], (ciudades_list)[f.rstrip("\n")]['x']], [(ciudades_list)['ciudad 1']['y'], ciudades_list[f.rstrip("\n")]['y']], '-o')
+#print(list(ciudades_list))
+#for first, second in zip(list(ciudades_list)[:-1],list(ciudades_list)[1:]):
+#    ax1.plot([ciudades_list[first]['x'], ciudades_list[second]['x']], [ciudades_list[first]['y'], ciudades_list[second]['y']], '-o')
+#ax1.plot([(ciudades_list)['ciudad 1']['x'], (ciudades_list)[f.rstrip("\n")]['x']], [(ciudades_list)['ciudad 1']['y'], ciudades_list[f.rstrip("\n")]['y']], '-o')
 
-for c in list(ciudades_list):
-    ax1.plot(ciudades_list[c]['x'], ciudades_list[c]['y'], 'bo')
+#for c in list(ciudades_list):
+#    ax1.plot(ciudades_list[c]['x'], ciudades_list[c]['y'], 'bo')
 
 recorrido = []
-print('BEFORE',ciudades_list)
+#print('Ciudades: ',ciudades_list)
 costo,ciudades_list,recorrido=sim_annealing(ciudades_list,numero_ciudades,ciudad_inicial)
-print('AFTER',ciudades_list)
+#print('AFTER',ciudades_list)
 for first, second in zip(list(ciudades_list)[:-1],list(ciudades_list)[1:]):
     #print(first,second)
     ax2.plot([ciudades_list[first]['x'], ciudades_list[second]['x']], [ciudades_list[first]['y'], ciudades_list[second]['y']], '-o')
@@ -71,6 +71,6 @@ ax2.plot([(ciudades_list)['ciudad 1']['x'], (ciudades_list)[f.rstrip("\n")]['x']
 for c in list(ciudades_list):
     ax2.plot(ciudades_list[c]['x'], ciudades_list[c]['y'], 'bo')
 
-print('Costo final: ',costo)
+print('Distancia optimizada final: ',costo)
 print(recorrido)
 plt.show()

@@ -28,7 +28,7 @@ def total_distance(ciudades_list):
     return total
 
 def sim_annealing(ciudades_list,numero_ciudades,ciudad_inicial):
-    before = ciudades_list
+    before = ciudades_list.copy()
     cost0 = total_distance(ciudades_list)
     T = 30
     factor = 0.99
@@ -62,24 +62,26 @@ def sim_annealing(ciudades_list,numero_ciudades,ciudad_inicial):
 
     for i in range(len(list(ciudades_list))) :
         if after['ciudad '+str(i+1)] == ciudad_inicial:
-            print('TRUE',after['ciudad '+str(i+1)],str(i+1))
-            for key, value in after.items():
+            #print('TRUE',after['ciudad '+str(i+1)],str(i+1))
+            for key, value in before.items():
+                #print('IN COURSE KEY VALUE',key,value)
                 if value == after['ciudad '+str(i+1)]:
+                    #print('KEEEEY BEFORE',key)
                     recorrido.append(key)
             i = i+1
             for j in range(len(list(ciudades_list))):
 
                 j = j+1
-                print(i,j)
+                #print(i,j)
                 if (i+j)%len(list(ciudades_list)) == 0:
-                    print('FALSE',after['ciudad '+str(len(list(ciudades_list)))],str((i+j)%len(list(ciudades_list))))
-                    for key, value in after.items():
-                         print(value,key,after['ciudad '+str(len(list(ciudades_list)))])
+                    #print('FALSE',after['ciudad '+str(len(list(ciudades_list)))],str((i+j)%len(list(ciudades_list))))
+                    for key, value in before.items():
+                         #print(value,key,after['ciudad '+str(len(list(ciudades_list)))])
                          if value == after['ciudad '+str(len(list(ciudades_list)))]:
                           recorrido.append(key)
                 else:
-                    print('FALSE',after['ciudad '+str((i+j)%len(list(ciudades_list)))],str((i+j)%len(list(ciudades_list))))
-                    for key, value in after.items():
+                    #print('FALSE',after['ciudad '+str((i+j)%len(list(ciudades_list)))],str((i+j)%len(list(ciudades_list))))
+                    for key, value in before.items():
                       if value == after['ciudad '+str((i+j)%len(list(ciudades_list)))]:
                          recorrido.append(key)
     return costo,ciudades_list,recorrido
