@@ -29,7 +29,6 @@ def sim_annealing(ciudades_list, numero_ciudades, ciudad_inicial):
     initialCost = total_distance(ciudades_list)
     times = 30
     factor = 0.99
-    T_init = times
     costo = 0
     for _ in range(1000):
         times *= factor
