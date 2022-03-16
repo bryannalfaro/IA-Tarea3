@@ -11,6 +11,7 @@
 '''
 https://realpython.com/python-dicts/
 https://www.codegrepper.com/code-examples/python/how+to+find+distance+between+two+coordinates+in+python
+https://www.youtube.com/watch?v=35fzyblVdmA&t=551s
 '''
 import math
 import sys
