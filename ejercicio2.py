@@ -34,7 +34,7 @@ num_ciudad_inicial = ciudad_inicial
 # Rellenando diccionario con ciudades y coordenadas
 for ciudad in ciudades:
     ciudades_list['ciudad ' +
-                  str(indice)] = {'x': int(ciudad.split()[0]), 'y': int(ciudad.split()[1])}
+                  str(indice)] = {'x': float(ciudad.split()[0]), 'y': float(ciudad.split()[1])}
     try:
         if(int(ciudad_inicial) == indice):
             ciudad_inicial = ciudades_list['ciudad '+str(indice)]
